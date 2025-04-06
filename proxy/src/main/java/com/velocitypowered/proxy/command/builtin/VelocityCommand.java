@@ -33,6 +33,7 @@ import com.velocitypowered.api.plugin.PluginDescription;
 import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import com.velocitypowered.api.util.ProxyVersion;
+import com.velocitypowered.proxy.Velocity;
 import com.velocitypowered.proxy.VelocityServer;
 import com.velocitypowered.proxy.util.InformationUtils;
 import java.io.BufferedWriter;
@@ -62,6 +63,7 @@ import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -155,14 +157,7 @@ public final class VelocityCommand {
       final CommandSource source = context.getSource();
       final ProxyVersion version = server.getVersion();
 
-      final Component velocity = Component.text()
-          .content(version.getName() + " ")
-          .decoration(TextDecoration.BOLD, true)
-          .color(VELOCITY_COLOR)
-          .append(Component.text()
-                  .content(version.getVersion())
-                  .decoration(TextDecoration.BOLD, false))
-          .build();
+      final Component velocity = MiniMessage.miniMessage().deserialize(Velocity.prefix()+"<green>TailwindVelocity version " + version + " coded by <yellow>Lunx");
       final Component copyright = Component
           .translatable("velocity.command.version-copyright",
               Component.text(version.getVendor()),

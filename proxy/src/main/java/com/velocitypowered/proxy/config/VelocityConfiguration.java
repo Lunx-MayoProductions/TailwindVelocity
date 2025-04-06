@@ -24,6 +24,7 @@ import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.annotations.Expose;
+import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.config.ProxyConfig;
 import com.velocitypowered.api.util.Favicon;
 import com.velocitypowered.proxy.config.migration.ConfigurationMigration;
@@ -62,15 +63,15 @@ public class VelocityConfiguration implements ProxyConfig {
   @Expose
   private String bind = "0.0.0.0:25565";
   @Expose
-  private String motd = "<aqua>A Velocity Server";
+  private String motd = "<gradient:aqua:blue>A TailwindVelocity Server";
   @Expose
-  private int showMaxPlayers = 500;
+  private int showMaxPlayers = 1000;
   @Expose
   private boolean onlineMode = true;
   @Expose
-  private boolean preventClientProxyConnections = false;
+  private boolean preventClientProxyConnections = true;
   @Expose
-  private PlayerInfoForwarding playerInfoForwardingMode = PlayerInfoForwarding.NONE;
+  private PlayerInfoForwarding playerInfoForwardingMode = PlayerInfoForwarding.MODERN;
   private byte[] forwardingSecret = generateRandomString(12).getBytes(StandardCharsets.UTF_8);
   @Expose
   private boolean announceForge = false;
@@ -163,7 +164,7 @@ public class VelocityConfiguration implements ProxyConfig {
       case MODERN:
       case BUNGEEGUARD:
         if (forwardingSecret == null || forwardingSecret.length == 0) {
-          logger.error("You don't have a forwarding secret set. This is required for security.");
+          logger.error("AYOOO! You aint no have that secret shit! Thats bad get it!.");
           valid = false;
         }
         break;

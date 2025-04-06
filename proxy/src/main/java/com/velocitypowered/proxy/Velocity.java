@@ -81,4 +81,8 @@ public class Velocity {
     // main thread exits.
     server.awaitProxyShutdown();
   }
+
+  public static String prefix(){
+    return "<gray>[<gradient:white:aqua><b>TailwindVelocity</b><gray>] ";
+  }
 }
